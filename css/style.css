@@ -1,5 +1,5 @@
 :root {
-
+    --the-gap: 1rem;
 }
 
 * {
@@ -9,5 +9,123 @@
 }
 
 body {
-    
+    height: 100vh;
+    display: flex;
+    /* si usa l'overflow hidden per sicurezza */
+    overflow: hidden;
+    flex-direction: column;
+    font-family: Arial, Helvetica, sans-serif
+}
+
+/*************************************************************
+do ai figli dei miei "contenitori padri" una grandezza minima e 
+dei bordi rossi per visualizzarli
+*************************************************************/
+body > *,
+.main-container > *,
+.main-songs-container > * {
+    border: 1px solid rgb(25, 0, 255);
+    min-height: 100px;
+    min-width: 100px;
+}
+
+/*************************************************************
+ai padri che sono anche figli do queste proprieta per diventare
+piu` grandi del loro div fratello
+*************************************************************/
+.main-container, .main-songs-container, .songs-container {
+    /* quando do il flex-grow do anche l'overflow auto */
+    flex-grow: 1;
+    overflow: auto;
+    display: flex;
+}
+
+.main-songs-container {
+    flex-direction: column;
+}
+
+/*************************************************************
+siccome voglio che la navbar non venga sovrastata dall'eventuale
+contenuto del suo fratello che e` in flex-grow: 1; devo dare 
+flex-shrink: 0; visto che flex-shrink e` una caratteristica base
+dei container in flex
+*************************************************************/
+.navbar-container {
+    width: 200px;
+    overflow: auto;
+    flex-shrink: 0;
+}
+
+.songs-container {
+    flex-direction: column;
+}
+
+.nav-songs {
+    min-height: 100px;
+    width: 100%;
+    border: 1px dashed rgb(212, 0, 219);
+}
+
+.nav-songs ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100px;
+    min-width: 100%;
+    gap: var(--the-gap);
+}
+
+.nav-songs ul li {
+    list-style: none;
+    min-height: 50px;
+    min-width: 60px;
+    border: 1px dashed rgb(223, 11, 11);
+}
+
+.songs section {
+    min-height: 100px;
+    min-width: 100%;
+    border: 1px dashed rgb(223, 11, 11);
+}
+
+.row-songs {
+    min-height: 80px;
+    min-width: 100%;
+    border: 1px dashed rgb(11, 14, 223);
+    display: flex;
+    align-items: center;
+    gap: var(--the-gap);
+}
+
+.col-songs {
+    min-height: 80px;
+    flex-basis: calc((100% / 6) - var(--the-gap));
+    border: 1px dashed rgb(223, 96, 11);
+}
+
+
+
+
+/* media query */
+
+@media screen and (max-width: 1100px) {
+    .row-songs {
+        flex-wrap: wrap;
+    }
+
+    .col-songs {
+        flex-basis: calc((100% / 4) - var(--the-gap));
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .col-songs {
+        flex-basis: calc((100% / 2) - var(--the-gap));
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .navbar-container {
+        width: 60px;
+    }
 }
