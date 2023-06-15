@@ -24,16 +24,17 @@ dei bordi rossi per visualizzarli
 body > *,
 .main-container > *,
 .main-songs-container > * {
-    border: 1px solid rgb(25, 0, 255);
-    min-height: 100px;
-    min-width: 100px;
+    /* min-height: 100px;
+    min-width: 100px; */
 }
 
 /*************************************************************
 ai padri che sono anche figli do queste proprieta per diventare
 piu` grandi del loro div fratello
 *************************************************************/
-.main-container, .main-songs-container, .songs-container {
+.main-container,
+.main-songs-container,
+.songs-container {
     /* quando do il flex-grow do anche l'overflow auto */
     flex-grow: 1;
     overflow: auto;
@@ -56,54 +57,111 @@ dei container in flex
     flex-shrink: 0;
 }
 
+a {
+    text-decoration: none;
+}
+
+.songs-container{
+    padding: 0 30px;
+}
+
+.navbar-container {
+    background-color: black;
+}
+
+.upgrade-bar {
+    background-color: #080B12;
+    text-align: right;
+}
+
+.btn {
+    margin: 1.2rem;
+    padding: 0.5rem 1.7rem;
+    border-radius: 25px;
+    border: 1px solid white;
+    background-color: #080B12;
+    color: white;
+}
+
 .songs-container {
     flex-direction: column;
+    background-color: #141922;
 }
 
 .nav-songs {
-    min-height: 100px;
     width: 100%;
-    border: 1px dashed rgb(212, 0, 219);
 }
 
 .nav-songs ul {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100px;
-    min-width: 100%;
     gap: var(--the-gap);
+    flex-wrap: wrap;
+    padding: 1rem;
 }
 
 .nav-songs ul li {
     list-style: none;
-    min-height: 50px;
-    min-width: 60px;
-    border: 1px dashed rgb(223, 11, 11);
 }
 
-.songs section {
-    min-height: 100px;
-    min-width: 100%;
-    border: 1px dashed rgb(223, 11, 11);
+.nav-songs ul li a {
+    color: gray;
+    font-size: .8rem;
+}
+
+section {
+    color: white;
+    padding: 2rem 0;
+}
+
+section span {
+    color: gray;
+    font-size: .7rem;
+    font-weight: bold;
+}
+
+.section-title {
+    padding-bottom: 2rem;
+}
+
+.section-title h2 {
+    padding-bottom: .5rem;
 }
 
 .row-songs {
-    min-height: 80px;
-    min-width: 100%;
-    border: 1px dashed rgb(11, 14, 223);
     display: flex;
-    align-items: center;
     gap: var(--the-gap);
 }
 
-.col-songs {
-    min-height: 80px;
-    flex-basis: calc((100% / 6) - var(--the-gap));
-    border: 1px dashed rgb(223, 96, 11);
+.row-songs a {
+    color: white;
 }
 
+.col-songs {
+    text-align: center;
+    flex-basis: calc((100% / 6) - var(--the-gap));
+}
 
+.col-songs img {
+    display: block;
+    object-fit: cover;
+    width: 100%;
+}
+
+.col-songs h3 {
+    font-size: 1rem;
+    padding-top: 1rem;
+    padding-bottom: .5rem;
+}
+
+.circle-img {
+    border-radius: 50%;
+}
+
+.play-nav-container {
+    background-color: #282828;
+}
 
 
 /* media query */
@@ -126,6 +184,6 @@ dei container in flex
 
 @media screen and (max-width: 600px) {
     .navbar-container {
-        width: 60px;
+        width: 70px;
     }
 }
