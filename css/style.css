@@ -21,12 +21,12 @@ body {
 do ai figli dei miei "contenitori padri" una grandezza minima e 
 dei bordi rossi per visualizzarli
 *************************************************************/
-body > *,
+/* body > *,
 .main-container > *,
 .main-songs-container > * {
-    /* min-height: 100px;
-    min-width: 100px; */
-}
+    min-height: 100px;
+    min-width: 100px; 
+} */
 
 /*************************************************************
 ai padri che sono anche figli do queste proprieta per diventare
@@ -34,7 +34,9 @@ piu` grandi del loro div fratello
 *************************************************************/
 .main-container,
 .main-songs-container,
-.songs-container {
+.songs-container,
+.playlist-container,
+.playlist {
     /* quando do il flex-grow do anche l'overflow auto */
     flex-grow: 1;
     overflow: auto;
@@ -52,9 +54,126 @@ flex-shrink: 0; visto che flex-shrink e` una caratteristica base
 dei container in flex
 *************************************************************/
 .navbar-container {
-    width: 200px;
+    width: 250px;
     overflow: auto;
     flex-shrink: 0;
+    color: white;
+}
+
+.navbar-container .logo {
+    padding: 20px 20px 0 20px;
+    margin-bottom: 30px;
+    width: 80%;
+}
+
+.navbar-container .logo .logo-small-spotify {
+    display:none;
+}
+
+.navbar-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.nav-option-container {
+    color: gray;
+    display: flex;
+    margin-bottom: 10px;
+    padding-left: 20px;
+    align-items: center;
+}
+
+.nav-option-container:nth-child(2) {
+    color: white;
+    border-left: 3px solid #ADFF2F;
+    padding-top: 0;
+}
+
+.nav-option-container .icon {
+    padding-right: 10px;
+    width: 20%;
+}
+
+.create-playlist {
+    display: flex;
+    align-items: center;
+    color: gray;
+}
+
+.create-playlist .plus-container {
+    background-color: gray;
+    height: 40px;
+    width: 40px;
+    margin-right: 10px;
+    position: relative;
+}
+
+.plus-container .plus {
+    font-size: 1.6rem;
+    color: black;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.playlist-container {
+    flex-direction: column;
+    padding: 0 20px;
+    flex-grow: 1;
+}
+
+.playlist-container h4{
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+
+.playlist {
+    flex-direction: column;
+    overflow: auto;
+}
+
+.playlist a {
+    font-size: .9rem;
+    color: gray;
+    padding: 10px 0;
+}
+
+.download-profile-container {
+    padding: 20px;
+}
+
+.download-app {
+    border-bottom: 1px solid gray;
+}
+
+.download-app, .profile {
+    color: gray;
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.profile {
+    color: white;
+    font-weight: bold;
+}
+
+.download-app img {
+    width: 7%;
+}
+
+.profile img {
+    width: 10%;
+    height: 10%;
+    background-color: gray;
+    border-radius: 50%;
+}
+
+.download-app img, .profile img {
+    color: gray;
+    margin-right: 15px;
 }
 
 a {
@@ -83,12 +202,8 @@ a {
     color: white;
 }
 
-.songs-container {
-    flex-direction: column;
-    background-color: #141922;
-}
-
 .nav-songs {
+    background-color: #141922;
     width: 100%;
 }
 
@@ -108,6 +223,25 @@ a {
 .nav-songs ul li a {
     color: gray;
     font-size: .8rem;
+    padding-bottom: 10px;
+    position: relative;
+}
+
+.green-barr::after {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 35px;
+    height: 3px;
+    background-color: #ADFF2F;
+}
+
+.songs-container {
+    flex-direction: column;
+    background-color: #141922;
 }
 
 section {
@@ -186,4 +320,34 @@ section span {
     .navbar-container {
         width: 70px;
     }
+
+    .icon {
+        padding: 0;
+    }
+
+    .navbar-container .logo-spotify {
+        display: none;
+    }
+
+    .navbar-container .logo .logo-small-spotify {
+        display: block;
+    }
+
+    .nav-option-container:nth-child(2) {
+        border: 0;
+    }
+
+    .nav-option-container span {
+        display: none;
+    }
+
+    .nav-option-container .icon {
+        width: 100%;
+    }
+
+    .playlist-container {
+        display: none;
+    }
+
+    
 }
