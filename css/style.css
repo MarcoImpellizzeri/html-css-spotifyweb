@@ -295,7 +295,54 @@ section span {
 
 .play-nav-container {
     background-color: #282828;
+    display: flex;
 }
+
+.nav-play-container {
+    flex-grow: 1;
+    max-width: 400px;
+}
+
+.song-palying-container {
+    display: flex;
+    align-items: center;
+}
+
+.song-playing {
+    display: flex;
+    padding: 30px 20px;
+    align-items: center;
+    /* flex-basis: 0;
+    width: 250px; */
+}
+
+.song-playing img {
+    width: 57px;
+    margin-right: 10px;
+}
+
+.description-song h4{
+    color: white;
+    font-size: .9rem;
+}
+
+.description-song span{
+    color: gray;
+    font-size: .8rem;
+}
+
+.icon-song-playing {
+    color: gray;
+    display: flex;
+    align-items: center;
+}
+
+.icon-song-playing .like{
+    padding: 10px;
+}
+
+
+
 
 
 /* media query */
@@ -325,8 +372,16 @@ section span {
         padding: 0;
     }
 
-    .navbar-container .logo-spotify {
+    .navbar-container .logo-spotify,
+    .nav-option-container span,
+    .playlist-container,
+    .download-profile-container a span {
         display: none;
+    }
+
+    .nav-option-container {
+        padding: 0 10px;
+        justify-content: center;
     }
 
     .navbar-container .logo .logo-small-spotify {
@@ -337,17 +392,27 @@ section span {
         border: 0;
     }
 
-    .nav-option-container span {
-        display: none;
+    .nav-option-container .icon {
+        width: 80%;
+        padding: 0;
     }
 
-    .nav-option-container .icon {
+    .navbar-container .logo {
+    margin: 10px auto;
+    padding: 0;
+    }
+
+    .download-app, .profile {
+        justify-content: center;
+
+    }
+
+    .download-app img, .profile img {
+        margin: 0 auto;
         width: 100%;
     }
 
-    .playlist-container {
-        display: none;
+    .download-app {
+        border-bottom: none;
     }
-
-    
 }
